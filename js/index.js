@@ -173,3 +173,22 @@
     }
   }
 })();
+
+document.addEventListener("DOMContentLoaded", function () {
+  const insuranceType = document.getElementById("insurance-type");
+  const carNumberField = document.getElementById("carNumber");
+  if (insuranceType) {
+    if (insuranceType.value === "سيارات") {
+      carNumberField.classList.remove("hidden");
+    } else {
+      carNumberField.classList.add("hidden");
+    }
+    insuranceType.addEventListener("change", function () {
+      if (insuranceType.value === "سيارات") {
+        carNumberField.classList.remove("hidden");
+      } else {
+        carNumberField.classList.add("hidden");
+      }
+    });
+  }
+});

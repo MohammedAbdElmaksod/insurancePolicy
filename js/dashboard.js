@@ -24,9 +24,6 @@
   });
 
   function initDashboard() {
-    // Set current date and time
-    updateDateTime();
-    setInterval(updateDateTime, 60000); // Update every minute
 
     // Add form submission handlers for modals
     document
@@ -40,33 +37,7 @@
       ?.addEventListener("submit", handleBankForm);
   }
 
-  function updateDateTime() {
-    const dateElement = document.getElementById("current-date");
-    const timeElement = document.getElementById("current-time");
 
-    if (dateElement && timeElement) {
-      const now = new Date();
-
-      // Format date in Arabic
-      const dateOptions = {
-        weekday: "long",
-        year: "numeric",
-        month: "long",
-        day: "numeric",
-        timeZone: "Asia/Riyadh",
-      };
-      dateElement.textContent = now.toLocaleDateString("ar-SA", dateOptions);
-
-      // Format time in Arabic
-      const timeOptions = {
-        hour: "2-digit",
-        minute: "2-digit",
-        hour12: true,
-        timeZone: "Asia/Riyadh",
-      };
-      timeElement.textContent = now.toLocaleTimeString("ar-SA", timeOptions);
-    }
-  }
 
   function initModals() {
     // Add click handlers for modal overlays

@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>نظام إدارة وثائق التأمين - عمولات المبيعات</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/styles.css" />
+
+  </head>
+  <body class="gradient-bg min-h-screen">
+<!-- Sidebar -->
+<aside id="sidebar" class="sidebar">
+    <div class="flex flex-col h-full">
+        <!-- Sidebar Header -->
+        <div class="p-6 border-b border-gray-200">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center">
+                    <div class="w-12 h-12 bg-gradient-to-r from-blue-600 to-blue-800 rounded-lg flex items-center justify-center shadow-md ml-3">
+                        <i class="fas fa-shield-alt text-xl text-white"></i>
+                    </div>
+                    <div>
+                        <h2 class="font-bold text-lg text-gray-800">نظام التأمين</h2>
+                        <p class="text-sm text-gray-500">الإدارة الإلكترونية</p>
+                    </div>
+                </div>
+                <button id="closeSidebar" class="md:hidden text-gray-500 hover:text-gray-700">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Navigation Links -->
+        <nav class="flex-1 p-4 overflow-y-auto">
+            <div class="mb-8">
+                <h3 class="px-4 text-sm font-medium text-gray-500 mb-4">
+                    القوائم الرئيسية
+                </h3>
+                <div class="space-y-2">
+                    <a href="dashboard.html" class="sidebar-link flex items-center px-4 py-3 rounded-lg text-gray-700">
+                        <i class="fas fa-tachometer-alt ml-3 text-blue-500"></i>
+                        <span class="flex-1">لوحة التحكم</span>
+                    </a>
+                    <a href="index.html" class="sidebar-link flex items-center px-4 py-3 rounded-lg text-gray-700">
+                        <i class="fas fa-file-contract ml-3 text-blue-500"></i>
+                        <span class="flex-1">تسجيل وثيقة</span>
+                    </a>
+                    <a href="payment.html" class="sidebar-link flex items-center px-4 py-3 rounded-lg text-gray-700">
+                        <i class="fas fa-money-check-alt ml-3 text-green-500"></i>
+                        <span>تسجيل الدفع</span>
+                    </a>
+                    <a href="taxdetails.html" class="sidebar-link flex items-center px-4 py-3 rounded-lg text-gray-700">
+                        <i class="fas fa-file-invoice ml-3 text-purple-500"></i>
+                        <span>تفاصيل ضريبية</span>
+                    </a>
+                    <a href="commission.html" class="sidebar-link flex items-center px-4 py-3 rounded-lg text-gray-700">
+                        <i class="fas fa-money-bill-wave ml-3 text-blue-500"></i>
+                        <span class="flex-1">عمولات المبيعات</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="mb-8">
+                <h3 class="px-4 text-sm font-medium text-gray-500 mb-4">الإدارة</h3>
+                <div class="space-y-2">
+                    <a href="clients.html" class="sidebar-link flex items-center px-4 py-3 rounded-lg text-gray-700">
+                        <i class="fas fa-users ml-3 text-indigo-500"></i>
+                        <span>العملاء</span>
+                    </a>
+                    <a href="#" class="sidebar-link flex items-center px-4 py-3 rounded-lg text-gray-700">
+                        <i class="fas fa-chart-line ml-3 text-amber-500"></i>
+                        <span>التقارير</span>
+                    </a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Sidebar Footer -->
+        <div class="p-4 border-t border-gray-200">
+            <div class="flex items-center px-4 py-3">
+                <div class="w-10 h-10 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full flex items-center justify-center ml-3">
+                    <span class="text-white font-bold">أ</span>
+                </div>
+                <div class="flex-1">
+                    <p class="font-medium text-gray-800">المسؤول العام</p>
+                    <p class="text-sm text-gray-500">مدير النظام</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</aside>
+
+    <!-- Overlay for mobile -->
+    <div id="overlay" class="overlay"></div>
+
+    <!-- Main Content -->
+    <main id="mainContent" class="main-content min-h-screen">
+      <!-- Header -->
+      <header class="bg-white shadow-sm">
+        <div class="px-6 py-4">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center">
+              <button
+                id="sidebarToggle"
+                class="text-gray-600 hover:text-gray-900 focus:outline-none ml-4"
+              >
+                <i class="fas fa-bars text-xl"></i>
+              </button>
+              <div class="header-logo">
+                <div
+                  class="w-12 h-12 bg-gradient-to-r from-blue-600 to-blue-800 rounded-lg flex items-center justify-center shadow-md"
+                >
+                  <i class="fas fa-money-bill-wave text-xl text-white"></i>
+                </div>
+              </div>
+              <div class="mr-3">
+                <h1 class="text-xl font-bold text-gray-800">
+                  نظام إدارة وثائق التأمين
+                </h1>
+                <p class="text-sm text-gray-600">توزيع عمولات المبيعات</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Commission Management Content -->
+      <div class="p-4 md:p-6">
+        <!-- Search Policy Section -->
+        <div class="mb-8">
+          <div class="form-container max-w-4xl mx-auto bg-white rounded-xl">
+            <div class="bg-gradient-to-l from-blue-600 to-blue-800 p-6">
+              <div class="flex items-center">
+                <div class="bg-white p-3 rounded-lg shadow-md ml-4">
+                  <i class="fas fa-search-dollar text-2xl text-blue-600"></i>
+                </div>
+                <div>
+                  <h2 class="text-2xl font-bold text-white">
+                    البحث عن وثيقة للتوزيع
+                  </h2>
+                  <p class="text-blue-100">
+                    ابحث عن وثيقة لتوزيع العمولات على موظفي المبيعات
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="p-6 md:p-8">
+              <!-- Policy Search Form -->
+              <div class="mb-8">
+                <div class="form-section pr-4">
+                  <h3 class="text-lg font-semibold text-gray-800 mb-6">
+                    <i class="fas fa-search ml-2 text-blue-500"></i>بحث عن
+                    الوثيقة
+                  </h3>
+
+                  <div class="space-y-4">
+                    <div>
+                      <label
+                        class="block text-gray-700 text-sm font-medium mb-2"
+                        for="policy-search"
+                      >
+                        <i class="fas fa-file-alt ml-2 text-blue-500"></i>رقم
+                        الوثيقة
+                      </label>
+                      <div class="flex gap-4">
+                        <input
+                          type="text"
+                          id="policy-search"
+                          class="flex-1 px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition form-input"
+                          placeholder="أدخل رقم الوثيقة للبحث (مثال: 2458)"
+                          value="2458"
+                        />
+                        <button
+                          onclick="searchPolicy()"
+                          class="px-6 py-3 bg-gradient-to-l from-blue-500 to-blue-600 text-white font-medium rounded-lg hover:opacity-90 transition flex items-center whitespace-nowrap add-sales-btn"
+                        >
+                          <i class="fas fa-search ml-2"></i>بحث عن الوثيقة
+                        </button>
+                      </div>
+                      <p class="text-gray-500 text-sm mt-2">
+                        أدخل رقم الوثيقة للبحث عن موظفي المبيعات المرتبطين بها
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Loading State -->
+              <div
+                id="loading-state"
+                class="hidden flex-col items-center justify-center py-12"
+              >
+                <div class="pulse-loader mb-4">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+                <p class="text-gray-600 text-lg">
+                  جاري البحث عن بيانات الوثيقة...
+                </p>
+              </div>
+
+              <!-- Policy Details -->
+              <div id="policy-details" class="hidden">
+                <!-- Policy Information Card -->
+                <div
+                  class="mb-8 bg-gradient-to-r from-blue-50 to-indigo-50 p-6 rounded-xl border border-blue-100"
+                >
+                  <div
+                    class="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-6"
+                  >
+                    <div>
+                      <div class="flex items-center gap-3 mb-3">
+                        <h3
+                          class="text-xl font-bold text-gray-800"
+                          id="policy-title"
+                        >
+                          وثيقة تأمين #2458
+                        </h3>
+                        <span
+                          class="px-3 py-1 bg-blue-100 text-blue-600 text-sm font-medium rounded-full"
+                          >نشطة</span
+                        >
+                      </div>
+                      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div>
+                          <p class="text-sm text-gray-500 mb-1">العميل</p>
+                          <p
+                            class="font-bold text-gray-800 text-lg"
+                            id="policy-client"
+                          >
+                            منة
+                          </p>
+                        </div>
+                        <div>
+                          <p class="text-sm text-gray-500 mb-1">نوع التأمين</p>
+                          <p
+                            class="font-bold text-gray-800 text-lg"
+                            id="policy-type"
+                          >
+                            سيارات
+                          </p>
+                        </div>
+                        <div>
+                          <p class="text-sm text-gray-500 mb-1">
+                            تاريخ السريان
+                          </p>
+                          <p
+                            class="font-bold text-gray-800 text-lg"
+                            id="policy-date"
+                          >
+                            2024-01-01
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="text-center">
+                      <div class="commission-progress mb-2">
+                        <div
+                          id="total-commission-progress"
+                          class="commission-progress-fill"
+                          style="width: 0%"
+                        ></div>
+                      </div>
+                      <p class="text-sm text-gray-600">نسبة التوزيع</p>
+                    </div>
+                  </div>
+
+                  <!-- Policy Financial Summary -->
+                  <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
+                    <div class="bg-white p-4 rounded-lg shadow-sm text-center">
+                      <p class="text-gray-500 text-sm mb-2">مبلغ التأمين</p>
+                      <p
+                        class="text-2xl font-bold text-gray-800"
+                        id="insurance-amount"
+                      >
+                        350,000 ج.م
+                      </p>
+                    </div>
+                    <div class="bg-white p-4 rounded-lg shadow-sm text-center">
+                      <p class="text-gray-500 text-sm mb-2">القسط الإجمالي</p>
+                      <p
+                        class="text-2xl font-bold text-gray-800"
+                        id="total-premium"
+                      >
+                        35,000 ج.م
+                      </p>
+                    </div>
+                    <div class="bg-white p-4 rounded-lg shadow-sm text-center">
+                      <p class="text-gray-500 text-sm mb-2">إجمالي العمولات</p>
+                      <p
+                        class="text-2xl font-bold text-blue-600"
+                        id="total-commission"
+                      >
+                        0 ج.م
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Sales Agents Section -->
+                <div class="mb-8">
+                  <div class="flex items-center justify-between mb-6">
+                    <h3 class="text-xl font-bold text-gray-800">
+                      <i class="fas fa-users ml-2 text-blue-500"></i>موظفو
+                      المبيعات
+                    </h3>
+                    <p class="text-gray-600" id="sales-count">0 موظف مبيعات</p>
+                  </div>
+
+                  <!-- Sales Agents List -->
+                  <div id="sales-agents-container" class="space-y-4">
+                    <!-- Sales agents will be dynamically added here -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Scripts -->
+    <script src="./js/shared.js"></script>
+    <script src="./js/sidebar.js"></script>
+    <script src="./js/commission.js"></script>
+  </body>
+</html>
