@@ -87,6 +87,13 @@
   window.closeBankModal = function () {
     closeModal("bankModal");
   };
+  window.openCurrencyModal = function () {
+    openModal("currencyModal");
+  };
+
+  window.closeCurrencyModal = function () {
+    closeModal("currencyModal");
+  };
 
   function openModal(modalId) {
     const modal = document.getElementById(modalId);
